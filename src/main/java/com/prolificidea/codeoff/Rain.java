@@ -43,7 +43,7 @@ public class Rain extends JPanel {
             clip.start();
 
         } catch (Exception e){
-            System.out.printf("Oh no audio");
+            System.out.println("Oh no audio");
         }
     }
 
