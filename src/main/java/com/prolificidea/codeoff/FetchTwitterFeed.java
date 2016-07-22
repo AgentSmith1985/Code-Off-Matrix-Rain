@@ -79,7 +79,7 @@ public class FetchTwitterFeed {
                         newMessage.append(" ");
                     }
 
-                    msg = newMessage.toString();
+                    msg = newMessage.toString().trim();
 
                     rain.TWITTER_RAIN.add(msg);
 
