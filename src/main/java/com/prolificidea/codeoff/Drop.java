@@ -44,7 +44,12 @@ public class Drop {
             velocity = getRandomInteger(0, 6);
         }
 
-        this.y = (-1) * (length + getRandomInteger(1,10)) * Config.FONT_SIZE;
+        if (!isTweet) {
+            this.y = (-1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE;
+        } else {
+            this.y = (-1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE - 600;
+            //this.y = (1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE;
+        }
         this.tweets = tweets;
     }
 
@@ -96,16 +101,27 @@ public class Drop {
                     }
                 }
             } else {
-                g2.setColor(Color.RED);
+                int randomNumber = getRandomInteger(0, 100000);
+                if (randomNumber < 50001) {
+                    g2.setColor(Color.RED);
+                } else {
+                    g2.setColor(Color.MAGENTA);
+                }
             }
-            g2.drawChars(text[i], 0, 1, x, y + (i * fontSize));
+
+            if (!isTweet) {
+                g2.drawChars(text[i], 0, 1, x, y + (i * fontSize));
+            } else {
+                //g2.drawChars(text[i], 0, 1, x, y + (i * fontSize));
+                g2.drawChars(text[i], 0, 1, x, (-1) * (y + (i * fontSize)));
+            }
         }
 
         y += velocity;
     }
 
     public char getRandomCharacter() {
-        return (char) ('だ' + (int) (Math.random() * 100));
+        return (char) (12384 + (int) (Math.random() * 100));
     }
 
     public int getRandomInteger(int min, int max) {

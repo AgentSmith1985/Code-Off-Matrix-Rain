@@ -75,7 +75,7 @@ public class FetchTwitterFeed {
                     String[] message = msg.split(" ");
                     for (int j = message.length - 1; j > -1; j--) {
 
-                        newMessage.append(message[j]);
+                        newMessage.append(new StringBuilder(message[j]).reverse().toString());
                         newMessage.append(" ");
                     }
 

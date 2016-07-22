@@ -17,10 +17,11 @@ public class Rain extends JPanel {
 
     public Rain(double height, double width) {
 
-        THE_MATRIX.add("BLONDE");
-        THE_MATRIX.add("REDHEAD");
-        THE_MATRIX.add("BRUNETTE");
-        THE_MATRIX.add("DRESS RED THE IN LADY THE");
+        THE_MATRIX.add(new StringBuilder("BLONDE").reverse().toString());
+        THE_MATRIX.add(new StringBuilder("REDHEAD").reverse().toString());
+        THE_MATRIX.add(new StringBuilder("BRUNETTE").reverse().toString());
+        //THE_MATRIX.add("DRESS RED THE IN LADY THE");
+        THE_MATRIX.add(new StringBuilder("THE LADY IN THE RED DRESS").reverse().toString());
 
         setDrawSizeHeight(height);
         setDrawSizeWidth(width);
