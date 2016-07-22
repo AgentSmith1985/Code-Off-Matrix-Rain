@@ -47,7 +47,7 @@ public class Drop {
         if (!isTweet) {
             this.y = (-1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE;
         } else {
-            this.y = (-1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE - 600;
+            this.y = (-1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE - 605;
             //this.y = (1) * (length + getRandomInteger(1, 10)) * Config.FONT_SIZE;
         }
         this.tweets = tweets;
