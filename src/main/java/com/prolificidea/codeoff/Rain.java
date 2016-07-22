@@ -10,7 +10,6 @@ public class Rain extends JPanel {
     public static List<String> TWITTER_RAIN = new ArrayList();
     public static List<String> THE_MATRIX = new ArrayList();
 
-
     private Drop[] drops;
     private double drawSizeHeight;
     private double drawSizeWidth;
