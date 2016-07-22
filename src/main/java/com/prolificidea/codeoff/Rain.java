@@ -20,6 +20,7 @@ public class Rain extends JPanel {
         THE_MATRIX.add("BLONDE");
         THE_MATRIX.add("REDHEAD");
         THE_MATRIX.add("BRUNETTE");
+        THE_MATRIX.add("DRESS RED THE IN LADY THE");
 
         setDrawSizeHeight(height);
         setDrawSizeWidth(width);
