@@ -1,21 +1,22 @@
 package com.prolificidea.codeoff;
 
 import java.awt.*;
-import java.util.Random;
+import java.util.*;
+import java.util.List;
 
 public class Drop {
 
     public static final int MAX_LEN = 130;
-    private Random rng = new Random();
-    private int velocity, length, x, y, height;
+    private Random random = new Random();
+    private int velocity, height, length, x, y;
     private char[][] text;
-    private java.util.List<String> tweets;
+    private List<String> tweets;
     private boolean isTweet = false;
 
-    Drop(int x, int y, java.util.List<String> tweets) {
+    Drop(int x, int y, List<String> tweets) {
 
         this.x = x;
-        this.height = y;
+        height = y;
 
         int randomNumber = getRandomInteger(0, 100000);
 
@@ -60,19 +61,14 @@ public class Drop {
 
     protected char[][] createTweetContent(int randomTweet) {
 
-
         char[] text = new StringBuilder(tweets.get(randomTweet)).toString().toCharArray();
         char[][] result = new char[length][1];
-
-        //Why won't this work!!!
-        //length = tweets[randomTweet].length() < 131 ? tweets[randomTweet].length() : length;
 
         for (int i = 0; i < length; i++) {
             if (i < tweets.get(randomTweet).length()) {
                 if (length == tweets.get(randomTweet).length()) {
                     result[i][0] = text[i];
                     isTweet = true;
-                    velocity = 0;
                 }
             } else
                 result[i][0] = getRandomCharacter();
@@ -93,7 +89,6 @@ public class Drop {
                 if (i == length - 1) {
                     g2.setColor(Color.GREEN);
                 } else {
-                    //g2.setColor(Color.GREEN);
                     try {
                         g2.setColor(new Color(0, 255, 0, (i * 2)));
                     } catch (IllegalArgumentException iae) {
@@ -110,11 +105,11 @@ public class Drop {
     }
 
     public char getRandomCharacter() {
-        return (char) ('だ' + (int) (Math.random() * 50));
+        return (char) ('だ' + (int) (Math.random() * 100));
     }
 
     public int getRandomInteger(int min, int max) {
-        return rng.nextInt((max - min) + 1) + min;
+        return random.nextInt((max - min) + 1) + min;
     }
 
     public boolean isOffScreen() {

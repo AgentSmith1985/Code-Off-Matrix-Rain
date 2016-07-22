@@ -2,12 +2,13 @@ package com.prolificidea.codeoff;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 import java.util.ArrayList;
 
 public class Rain extends JPanel {
 
-    public static java.util.List<String> TWITTER_RAIN = new ArrayList();
-    public static java.util.List<String> THE_MATRIX = new ArrayList();
+    public static List<String> TWITTER_RAIN = new ArrayList();
+    public static List<String> THE_MATRIX = new ArrayList();
 
 
     private Drop[] drops;
