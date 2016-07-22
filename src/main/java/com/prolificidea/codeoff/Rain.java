@@ -1,7 +1,11 @@
 package com.prolificidea.codeoff;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -28,6 +32,18 @@ public class Rain extends JPanel {
         drops = new Drop[(int) (drawSizeWidth / Config.FONT_SIZE)];
         for (int i = 0; i < drops.length; i++) {
             drops[i] = new Drop(i * Config.FONT_SIZE, (int) drawSizeHeight, TWITTER_RAIN);
+        }
+
+        try {
+            URL soundFile = getClass().getClassLoader().getResource("matrix03.wav");
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.loop(100000);
+            clip.start();
+
+        } catch (Exception e){
+            System.out.printf("Oh no audio");
         }
     }
 
