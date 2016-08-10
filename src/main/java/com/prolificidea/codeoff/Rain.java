@@ -39,11 +39,11 @@ public class Rain extends JPanel {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
-            clip.loop(100000);
+            //clip.loop(100000);
             clip.start();
 
         } catch (Exception e){
-            System.out.println("Oh no audio");
+            System.out.println("Oh dang, no audio!");
         }
     }
 

@@ -32,7 +32,7 @@ public class FetchTwitterFeed {
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException ie) {
-                //Ah heck!
+                System.out.printf("Ah heck!");
             }
         }
     }
@@ -44,7 +44,7 @@ public class FetchTwitterFeed {
 
             String user = t.getUser().getScreenName();
             String msg = t.getText();
-            System.out.println(i + " USER: " + user + " wrote: " + msg + "\n");
+            System.out.println(i + " ***Normal Tweet***: " + user + " wrote: " + msg + "\n");
 
             StringBuilder newMessage = new StringBuilder();
 
@@ -58,7 +58,7 @@ public class FetchTwitterFeed {
 
                 rain.TWITTER_RAIN.add(msg);
 
-                System.out.println(i + " " + msg + "\n");
+                System.out.println(i + " ***Reversed Tweet***: " + " " + msg + "\n");
             }
         }
     }
@@ -106,9 +106,9 @@ public class FetchTwitterFeed {
 
     private static void initTwitterConfigBuilder(ConfigurationBuilder cb) {
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("VyiUoBfUD3mny9gTFZE5BJWh1")
-                .setOAuthConsumerSecret("tLdd2Pgtrvd5D4yYilmXOii87rBlonbksX7oINF0hgfDc3FEKy")
-                .setOAuthAccessToken("932350375-5PUXcZyV9ruDjToHncZT44PQb8Ew8Yqmp30tWnXD")
-                .setOAuthAccessTokenSecret("5WxlpZs8aG87i75ZjPPFtniwrQIm7mmQ8JZyrIICA2Vcb");
+                .setOAuthConsumerKey("kkCZV1BuhGkYIB2wWOcQrGrwk")
+                .setOAuthConsumerSecret("LfuvX61zbcEEOX5bNqWhhmbiRgwEQTTM876INIDovFsP5tyK6x")
+                .setOAuthAccessToken("932350375-JLG4S1kDbzU7Gy48TuQZqEXkylM05uqEuKO5Sz1H")
+                .setOAuthAccessTokenSecret("FN43q4sSmqlzXbC6gTrDQ1FDMGbdbZoBAjiRhfb5HZe77");
     }
 }
