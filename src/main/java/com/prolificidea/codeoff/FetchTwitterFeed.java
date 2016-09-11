@@ -37,7 +37,7 @@ public class FetchTwitterFeed {
         }
     }
 
-    private static void readInTweets(Rain rain, ArrayList<Status> tweets) {
+    private static void readInTweets(final Rain rain, final ArrayList<Status> tweets) {
         for (int i = 0; i < tweets.size(); i++) {
 
             Status t = (Status) tweets.get(i);
@@ -48,8 +48,7 @@ public class FetchTwitterFeed {
 
             StringBuilder newMessage = new StringBuilder();
 
-            if (msg != null)
-            {
+            if (msg != null) {
                 if (user != null) {
                     msg = user + " wrote: " + msg;
                 }
@@ -63,12 +62,14 @@ public class FetchTwitterFeed {
         }
     }
 
-    private static String cleanTweet(String msg, StringBuilder newMessage) {
+    private static String cleanTweet(final String message, final StringBuilder newMessage) {
+        String msg = message;
+
         msg = msg.replaceAll("\uD83D\uDE09", "");
 
         if (msg.contains("https")) {
             int posToDelete = msg.indexOf("https");
-            msg = msg.substring(0 , posToDelete);
+            msg = msg.substring(0, posToDelete);
         }
 
         if (msg.length() > Drop.MAX_LEN) {
@@ -77,10 +78,10 @@ public class FetchTwitterFeed {
 
         msg = msg.trim();
 
-        String[] message = msg.split(" ");
-        for (int j = message.length - 1; j > -1; j--) {
+        String[] messageArray = msg.split(" ");
+        for (int j = messageArray.length - 1; j > -1; j--) {
 
-            newMessage.append(new StringBuilder(message[j]).reverse().toString());
+            newMessage.append(new StringBuilder(messageArray[j]).reverse().toString());
             newMessage.append(" ");
         }
 
@@ -88,7 +89,9 @@ public class FetchTwitterFeed {
         return msg;
     }
 
-    private static long getLatestTweets(Twitter twitter, Query query, long lastID, ArrayList<Status> tweets) {
+    private static long getLatestTweets(final Twitter twitter, final Query query, final long id, final ArrayList<Status> tweets) {
+        long lastID = id;
+
         try {
             QueryResult result = twitter.search(query);
             tweets.addAll(result.getTweets());
@@ -104,7 +107,7 @@ public class FetchTwitterFeed {
         return lastID;
     }
 
-    private static void initTwitterConfigBuilder(ConfigurationBuilder cb) {
+    private static void initTwitterConfigBuilder(final ConfigurationBuilder cb) {
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("kkCZV1BuhGkYIB2wWOcQrGrwk")
                 .setOAuthConsumerSecret("LfuvX61zbcEEOX5bNqWhhmbiRgwEQTTM876INIDovFsP5tyK6x")

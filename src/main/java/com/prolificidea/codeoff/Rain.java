@@ -18,7 +18,7 @@ public class Rain extends JPanel {
     private double drawSizeHeight;
     private double drawSizeWidth;
 
-    public Rain(double height, double width) {
+    public Rain(final double height, final double width) {
 
         THE_MATRIX.add(new StringBuilder("BLONDE").reverse().toString());
         THE_MATRIX.add(new StringBuilder("REDHEAD").reverse().toString());
@@ -47,7 +47,7 @@ public class Rain extends JPanel {
         }
     }
 
-    public void paint(Graphics g) {
+    public void paint(final Graphics g) {
         super.paint(g);
 
         Graphics2D g2 = (Graphics2D) g;
@@ -82,11 +82,11 @@ public class Rain extends JPanel {
         repaint();
     }
 
-    public void setDrawSizeHeight(double drawSize) {
+    public void setDrawSizeHeight(final double drawSize) {
         this.drawSizeHeight = drawSize;
     }
 
-    public void setDrawSizeWidth(double drawSizeWidth) {
+    public void setDrawSizeWidth(final double drawSizeWidth) {
         this.drawSizeWidth = drawSizeWidth;
     }
 }

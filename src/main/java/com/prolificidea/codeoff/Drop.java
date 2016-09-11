@@ -13,7 +13,7 @@ public class Drop {
     private List<String> tweets;
     private boolean isTweet = false;
 
-    Drop(int x, int y, List<String> tweets) {
+    Drop(final int x, final int y, final List<String> tweets) {
 
         this.x = x;
         height = y;
@@ -53,7 +53,7 @@ public class Drop {
         this.tweets = tweets;
     }
 
-    protected char[][] createContent(int length) {
+    protected char[][] createContent(final int length) {
 
         char[][] result = new char[length][1];
 
@@ -64,7 +64,7 @@ public class Drop {
         return result;
     }
 
-    protected char[][] createTweetContent(int randomTweet) {
+    protected char[][] createTweetContent(final int randomTweet) {
 
         char[] text = new StringBuilder(tweets.get(randomTweet)).toString().toCharArray();
         char[][] result = new char[length][1];
@@ -82,7 +82,7 @@ public class Drop {
         return result;
     }
 
-    public void draw(Graphics2D g2) {
+    public void draw(final Graphics2D g2) {
         int fontSize = g2.getFont().getSize();
 
         for (int i = 0; i < length; i++) {
@@ -124,7 +124,7 @@ public class Drop {
         return (char) (12384 + (int) (Math.random() * 100));
     }
 
-    public int getRandomInteger(int min, int max) {
+    public int getRandomInteger(final int min, final int max) {
         return random.nextInt((max - min) + 1) + min;
     }
 
